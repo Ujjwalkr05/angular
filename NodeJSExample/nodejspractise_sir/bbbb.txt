@@ -1,0 +1,9 @@
+var a = 10;
+console.log("a >>>>>>>>> " + a);
+a = "Hello world"
+console.log("a >>>>>>>>> " + a);
+var b = 20;
+var c = a + b;
+
+console.log ("sum of a and b " + c);
+console.log("hi this is nodejs");

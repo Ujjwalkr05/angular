@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>The Socket Server</title>
+    https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+	
+	<script>
+	
+		function sendMessage() {
+			var ws = new WebSocket("ws://localhost:9060");
+			var message  = document.getElementById("message"").value;
+			ws.send(message);
+			
+			var communication = "";
+			 ws.onmessage = function(evt){
+				communication += 'Received Message ' + evt.data+ "";
+            
+			};
+       
+           ws.onclose = function(evt){
+				communication += 'Conenction Closed ' + evt.code + "  " + e,type+ "";
+			};
+       
+			ws.onerror = function(evt){
+				communication += 'Error Occured ' + evt.data+ "";
+            
+			};
+			
+			document.getElementById("responseMessage"").innerHtml = communication;
+			
+		}
+	
+	</script>
+</head>
+<body>
+    <h1>The Communication with Socket</h1>
+    Message:<input type='text' id="message" value="">
+    <br />
+    <input type="button" id="btnsend" value="Send" />
+     
+	 <div id="responseMessage">
+</body>
+</html>

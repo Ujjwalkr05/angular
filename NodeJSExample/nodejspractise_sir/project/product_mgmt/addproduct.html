@@ -1,0 +1,158 @@
+<html ng-app="app">
+	<head>
+		<title> Product Mgmt System </title>
+		<script src = "angular.min.js"></script>
+		<style>
+		
+			
+			.addProductForm {
+				background-color: lightblue;
+				width:35%;
+				margin-top:200px;
+				border:1px;
+			}
+			
+		
+		</style>
+		
+		
+	</head>
+	
+	<body>
+		<center>
+		
+			<!-- login form Ends here -->
+			<!-- Add Product form start -->
+			<div class="addProductForm" ng-controller="addProductFormCtrl">
+				<table>
+				
+					<tr>
+						<td colspan="2" align="center"><label>Add Product Form</label></td>	
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><label>Add Product Form</label></td>	
+					</tr>
+					<tr>
+						<td><label>Product Category</label></td>
+						<td>
+							<select ng-model='selectedCategory' ng-options = "cat for cat in categories"></select>{{selectedCategory}}
+							<!--<a href="#"> <i>Add Categories</i></a> -->
+						</td>
+					</tr>
+					<tr>
+						<td><label>Product Manufactures</label></td>
+						<td>
+							<select ng-model='selectedManufacture' ng-options = "manufactureObj.manufacture for manufactureObj in manufactures | filter:selectedCategory"></select>
+							{{selectedManufacture.manufacture}}
+						</td>
+					</tr>
+					<tr>
+						<td><label>Product Description</label></td>
+						<td>
+							<input type="text" ng-model="addr" placeholder="Input Address" />
+						</td>
+					</tr>
+					<tr>
+						<td><label>Product Cost</label></td>
+						<td>
+							<input type="text" ng-model="name" placeholder="Input Name" />
+						</td>
+					</tr>
+					<tr>
+						<td><label>Product Quantity</label></td>
+						<td>
+							<input type="text" ng-model="name1" placeholder="Input Name" />
+						</td>
+					</tr>
+					<tr>
+						<td><label>Any other specification</label></td>
+						<td>
+							<input type="text" ng-model="name2" placeholder="Input Name" />
+						</td>
+					</tr>
+					<tr>
+						<td><button ng-click="add()">Add Product</button></td>
+						<td><button ng-click="reset()">Cancel</button></td>
+					</tr>
+				</table>
+			</div>
+			
+		</center>
+		
+		<script>
+		
+			var app = angular.module('app',[]);
+			
+			
+			
+			// add product Form Ctrl
+			app.controller('addProductFormCtrl',function($scope, $rootScope, $log) {
+				$scope.manufacture = "";
+				$scope.selectedCategory = "";
+				$scope.selectedManufacture = "";
+				$scope.categories = ["Electronics", "Apparel", "Shoes"];
+				$scope.manufactures = [
+										{category:"Electronics", manufacture:"Sony"},
+										{category:"Electronics", manufacture:"LG"},
+										{category:"Electronics", manufacture:"Samsung"},
+										
+										{category:"Apparel", manufacture:"Flying Machine"},
+										{category:"Apparel", manufacture:"Levi's"},
+										{category:"Apparel", manufacture:"Peter England"},
+										{category:"Apparel", manufacture:"Arrow"},
+										{category:"Apparel", manufacture:"Alen Solly"},
+										{category:"Apparel", manufacture:"Polo"},
+										
+										{category:"Shoes", manufacture:"PUMA"},
+										{category:"Shoes", manufacture:"Lancer"},
+										{category:"Shoes", manufacture:"Adidas"},
+										{category:"Shoes", manufacture:"Nike"},
+										{category:"Shoes", manufacture:"Red Tape"}
+									   ];
+			});
+			
+			
+			app.controller('ctrl',function($scope, $rootScope, $log) {
+				$scope.products = [
+					{product_category:'Electronic', product_manufacture:'LG', product_description:'TV', product_cost:'32000', product_quantity:'4', product_specification:'LED'},
+					{product_category:'Electronic', product_manufacture:'Sony', product_description:'TV', product_cost:'54', product_quantity:'2', product_specification:'LED'},
+					{product_category:'Apparel', product_manufacture:'Flying Machine', product_description:'Shirt', product_cost:'2000', product_quantity:'40', product_specification:''},
+					{product_category:'Apparel', product_manufacture:'Peter England', product_description:'Jeans', product_cost:'3000', product_quantity:'80', product_specification:''},
+					{product_category:'Shoes', product_manufacture:'PUMA', product_description:'Sports', product_cost:'4500', product_quantity:'40', product_specification:'Long Running'},
+					{product_category:'Shoes', product_manufacture:'Adidas', product_description:'Formal', product_cost:'3200', product_quantity:'40', product_specification:'Leather'},
+				];
+
+				$rootScope.add = function(){
+					if(angular.isDefined($rootScope.product_category) && angular.isDefined($rootScope.product_category) && $rootScope.product_category!='' && $rootScope.product_category !='')
+						$scope.products.push({product_category: $rootScope.product_category, product_category: $rootScope.product_category});
+
+					$rootScope.product_category ='';
+					//$rootScope.addr ='';
+					$log.log('Add Function Works');
+				}
+
+				$scope.delete = function(val) {
+					$scope.products.splice(val, 1);
+				}
+
+				$scope.edit = function(val) {
+					$rootScope.product_category = val.product_category;
+					$rootScope.product_category = val.product_category;
+					//$rootScope.addr = val.addr;
+				}
+
+				$rootScope.save = function() {
+					for(var i in $scope.products){
+						if($scope.products[i].product_category == $rootScope.product_category){
+
+							$scope.products[i].product_category = $rootScope.product_category;
+							//$scope.products[i].addr = $rootScope.addr;
+						}
+					}
+					$rootScope.product_category ='';
+					$rootScope.product_category ='';
+				}
+			});
+		</script>
+	</body>
+</html>

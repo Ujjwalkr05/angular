@@ -1,0 +1,31 @@
+const dir = './';
+const fs = require('fs');
+
+fs.readdir(dir, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+})
+
+console.log("**************************************************");
+fs.readdirSync(dir).forEach(file => {
+  console.log(file);
+})
+
+// perform a recursive search into the directory though
+console.log("**************************************************");
+var walk    = require('walk');
+var files   = [];
+
+// Walker options
+var walker  = walk.walk('./test', { followLinks: false });
+
+walker.on('file', function(root, stat, next) {
+    // Add this file to the list of files
+    files.push(root + '/' + stat.name);
+    next();
+});
+
+walker.on('end', function() {
+    console.log(files);
+});

@@ -1,0 +1,16 @@
+var fs = require("fs");
+
+var fileReadFunction = function(err, data) {
+	console.log("111111111111" + data);
+}
+
+
+
+function callReadFile() {
+	fs.readFile("index.html", fileReadFunction);
+}
+
+//setTimeout(callReadFile, 5000);
+
+setInterval(callReadFile, 5000);
+

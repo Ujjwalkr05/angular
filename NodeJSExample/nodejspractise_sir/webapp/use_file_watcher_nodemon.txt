@@ -1,0 +1,10 @@
+As we move forward we will be editing your server files. You will need to restart the server each time. 
+You can kill the server by typing Ctrl + C in your Terminal. But I suggest using a “watcher” that will do this for you.
+
+use Nodemon tool. You can install it globally with this command:
+
+npm install -g nodemon
+
+nodemon server.js
+
+
