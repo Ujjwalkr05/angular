@@ -1,6 +1,0 @@
-
-
-git clone url
-git add folder/filename
-git commit -m "message"
-git push
