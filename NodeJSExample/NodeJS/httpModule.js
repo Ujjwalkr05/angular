@@ -8,6 +8,6 @@ http.createServer(function (req, res) {
     res.write('Hello World!'); //write a response to the client
     res.write('<br><b>Ujjwal</b>');
     res.end(); //end the response
-}).listen(8181); //the server object listens on port 8080
+}).listen(8080); //the server object listens on port 8080
 
 console.log('Server running at http://127.0.0.1:8080/');
