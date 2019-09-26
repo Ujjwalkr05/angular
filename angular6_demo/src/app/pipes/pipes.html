@@ -1,0 +1,73 @@
+lowercase example
+<div> 
+   The City is {{city | lowercase}}<br> 
+
+</div> 
+
+<br>
+---------------------------------------------------------------------------------------------------------
+uppercase example
+<div> 
+   
+    The City is {{city | uppercase}}<br> 
+</div> 
+
+<br>
+---------------------------------------------------------------------------------------------------------
+slice example
+<div> 
+   {{text | slice:0:18}}<br> 
+   {{text | slice:9:17}}<br> 
+</div> 
+
+<br>
+---------------------------------------------------------------------------------------------------------
+Date example
+<div> 
+  <br> without filter : Today date is {{todayDate}}
+			
+			<br> with filter : Today date is {{todayDate | date:'dd-MMM-yyyy'}}
+			<br> with filter : Today date is {{todayDate | date:'dd-MM-yy'}}
+			
+			<br> longDate : Today date is {{todayDate | date:'longDate'}}
+			<br> short : Today date is {{todayDate | date:'short'}}
+			
+			<br> with time : Today date is {{todayDate | date:'MM/dd/yyyy@h:mma'}}
+			<br> only time : Today date is {{todayDate | date:'h:mm:ssa'}}
+			
+			
+			<br> Year is {{todayDate | date:'yyyy'}}
+			<br> Month is {{todayDate | date:'MMM'}}
+			<br> Date is {{todayDate | date:'dd'}}
+</div> 
+
+<br>
+---------------------------------------------------------------------------------------------------------
+Filter out based on user input
+<div>
+
+		<div>
+			Complete list
+          <ul *ngFor = "let language of languagesNames">
+			<li>{{language}}</li>
+          </ul>
+        </div>
+		
+        Enter language name to filter out<input type="text" [(ngModel)]="str">
+        <div *ngFor = "let language of languagesNames | filterString:str" >
+          <p>
+            {{language}}
+          </p>
+        </div>
+ 
+    </div>  
+
+
+
+<br>
+---------------------------------------------------------------------------------------------------------
+ Custom Multiplier Pipe
+<div> 
+  <p>{{3 | multiplier: 15}}</p>
+  
+</div>

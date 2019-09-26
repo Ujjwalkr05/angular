@@ -1,0 +1,12 @@
+<button (click)="getCustomerInfo()">Get Customer Info</button>
+
+<p>{{ customers | json }}</p>
+
+
+	<table border=1>
+	   <tr *ngFor="let cutomer of customers">
+		<td>{{ cutomer.Name }}</td>
+		<td>{{ cutomer.City }}</td>
+		<td>{{ cutomer.Country }}</td>
+	  </tr>
+	</table>

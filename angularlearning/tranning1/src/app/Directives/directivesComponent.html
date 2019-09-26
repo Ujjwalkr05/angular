@@ -1,0 +1,17 @@
+
+<div>
+    <h3 *ngIf = 'appStatus' croma color="Yellow">
+{{appTitle}} to India!!
+    </h3>
+    <h3>Thanks.....</h3>
+</div>
+
+<div *ngIf = 'appStatus' croma color="red">
+    <div *ngFor = 'let emp of employeeList'>
+        <ul>
+            <li>{{emp.ID}}, {{emp.Name}} </li>
+        </ul>
+        </div>
+</div>
+
+<button (click) = "enableEmployeeInfo"> </button>

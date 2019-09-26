@@ -1,0 +1,19 @@
+<div *ngIf="!isSuccessfulLogedin; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+        <h1 style="text-align: center">Login page</h1><br>
+
+        <div style="margin-left: 38%;">
+            user name: <input type="text" [(ngModel)]="username" />
+            <span *ngIf='isUserNameInvalid' style="color:red; margin-left: 10px;">Invalid user name</span>
+            <br><br>password: <input type="password" [(ngModel)]="userpassword" style="margin-left: 5px;" />
+            <span *ngIf='isUserPasswordInvalid' style="color:red; margin-left: 10px;">Invalid password</span>
+    
+            <br><br>
+            <button (click)="credentialVeriy()" style="margin-left: 13%;">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="clear()">clean</button>
+    
+        </div>
+</ng-template>
+<ng-template #elseBlock>
+        <h1 style="text-align: center; color: seagreen;">Successfully logged-in!!</h1>
+</ng-template>

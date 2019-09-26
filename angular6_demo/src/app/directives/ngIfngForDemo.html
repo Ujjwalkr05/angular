@@ -1,0 +1,15 @@
+
+	<div> 
+		<h3 *ngIf = 'appStatus'> {{appTitle}} to Angular 6 </h3> 
+		<h3> 1111111111 </h3> 
+	</div> 
+
+	<div *ngIf = 'appStatus'> 
+		<div *ngFor = 'let emp of empList'> 
+		   <ul> 
+			  <li>{{emp.ID}} {{emp.Name}}</li> 
+		   </ul> 
+		</div>
+	</div>
+	
+	<button (click)="enableEmployeeInfo()">Enable/Disable Employee Info</button>

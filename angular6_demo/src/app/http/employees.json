@@ -1,0 +1,12 @@
+[ {
+      "employeetID": "101",
+      "employeeName" : "Priya",
+	"url": "app/Images/one.jpg"
+   },
+
+   {
+      "employeetID": "102",
+      "employeeName" : "Anuj",
+	"url": "app/Images/two.jpg"
+   } 
+]

@@ -1,0 +1,10 @@
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
+<table style="border: 1px solid black; border-collapse: collapse; width: 95%; text-align: center" *ngFor="let emp of customerData | grdFilter: {name: searchText, Age:searchText,  blog: searchText}; let i=index;">
+  <tr style="text-align: center">
+    <td style="text-align: center">{{i +1}}</td>
+    <td style="text-align: center">{{emp.name}}</td>
+    <td style="text-align: center">{{emp.Age}}</td>
+    <td style="text-align: center">{{emp.blog}}</td>
+  </tr>
+</table>
